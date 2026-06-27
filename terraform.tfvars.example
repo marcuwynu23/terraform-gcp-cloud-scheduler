@@ -1,0 +1,13 @@
+project_id          = "your-project-id"
+region              = "us-central1"
+job_name            = "my-scheduler-job"
+job_description     = "Triggers a Cloud Run service periodically"
+schedule            = "0 */3 * * *"
+time_zone           = "UTC"
+attempt_deadline    = "180s"
+http_method         = "POST"
+target_uri          = "https://your-cloud-run-service-uc.a.run.app"
+body                = "{\"schedule\": \"trigger\"}"
+headers             = { "Content-Type" = "application/json" }
+oidc_sa_email       = "scheduler-sa@your-project.iam.gserviceaccount.com"
+oidc_audience       = "https://your-cloud-run-service-uc.a.run.app"
